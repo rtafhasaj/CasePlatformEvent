@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="Case Viewers" icon-name="custom:custom15">
+        <template if:true={caseViewers}>
+            <div class="slds-p-around_medium lgc-bg">
+                <ul class="slds-has-dividers_bottom-space">
+                    <template for:each={caseViewers} for:item="usr" for:index="index">
+                        <li key={usr.Id} class="slds-item">
+                            <lightning-tile label={usr.Name} href={usr.UserPath} type="media">
+                                <lightning-avatar slot="media" src="https://www.lightningdesignsystem.com/assets/images/avatar1.jpg" fallback-icon-name="standard:person_account" alternative-text={usr.Name}></lightning-avatar>
+                                <ul class="slds-list_horizontal slds-has-dividers_right">
+                                    <li class="slds-item">
+                                        <lightning-formatted-date-time 
+                                                value={usr.Time} 
+                                                year="numeric" 
+                                                month="short" 
+                                                day="2-digit"
+                                                hour="2-digit"
+                                                minute="2-digit"
+                                                weekday="long">
+                                        </lightning-formatted-date-time>
+                                    </li>
+                                </ul>
+                            </lightning-tile>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </template>
+    </lightning-card>
+</template>
